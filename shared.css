@@ -55,6 +55,16 @@ main {
   vertical-align: middle;
 } */
 
+/* This is only for mobile */
+@media (max-width: 41rem) {
+  .mobile-logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
 .toggle-button {
   width: 3rem;
   background: transparent;
