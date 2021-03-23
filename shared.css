@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   width: 100%;
 }
@@ -28,6 +28,12 @@ main {
   background: rgba(0, 0, 0, 0.5);
 }
 
+/*
+ Align content -> cross axis
+ Justify content -> main axis
+ align content -> cross axis (Only kicks in when there are 2 or more rows  ) 
+
+*/
 .main-header {
   width: 100%;
   position: fixed;
@@ -37,11 +43,26 @@ main {
   padding: 0.5rem 1rem;
   /* padding: 0.6rem; */
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/*Not needed as we used flex*/
+/* 
 .main-header > div {
   display: inline-block;
   vertical-align: middle;
+} */
+
+/* This is only for mobile */
+@media (max-width: 41rem) {
+  .mobile-logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 .toggle-button {
@@ -71,22 +92,15 @@ main {
   text-decoration: none;
   font-weight: bold;
   /* font-size: 1.5rem; */
-  height: 2.5rem;
-  display: inline-block;
-  vertical-align: middle;
+
+  /* display: inline-block;
+  vertical-align: middle; */
 }
 
 .main-header__brand img {
-  height: 100%;
-  /* width: 100%; */
-}
-
-/* .main-nav {
-  display: inline-block;
-  text-align: right;
-  width: calc(100% - 122px);
+  height: 2.5rem;
   vertical-align: middle;
-} */
+}
 
 .main-nav {
   display: none;
@@ -96,10 +110,11 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  /* justify-content: flex-end; */
 }
 
 .main-nav__item {
-  display: inline-block;
   margin: 0 1rem;
 }
 
@@ -115,7 +130,10 @@ main {
 .main-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a:active {
-  color: white;
+  color: rgb(255, 255, 255);
+  background-color: #0e4f1f;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
   border-bottom: 5px solid white;
 }
 
@@ -146,12 +164,13 @@ main {
   list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-footer__link {
-  display: block;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .main-footer__link a {
@@ -207,9 +226,12 @@ main {
   width: 90%;
   height: 100%;
   list-style: none;
-  margin: 10% auto;
+  margin: 0% auto;
   padding: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile-nav__item {
@@ -232,17 +254,18 @@ main {
   }
 
   .main-nav {
-    display: inline-block;
-    text-align: right;
-    width: calc(100% - 44px);
-
-    vertical-align: middle;
+    display: flex;
   }
 }
 
 @media (min-width: 41rem) {
+  .main-footer__links {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .main-footer__link {
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0 1rem;
   }
 }
