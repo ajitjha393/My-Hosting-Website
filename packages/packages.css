@@ -43,6 +43,8 @@ main {
 	color: white;
 	background: #ff5454;
 	padding: 0.5rem;
+	transform: rotateZ(+45deg);
+	transform-origin: center;
 }
 
 .package__subtitle {
